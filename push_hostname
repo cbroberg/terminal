@@ -1,0 +1,21 @@
+#!/bin/bash
+#chmod 700 push_aliases
+
+clear
+
+# scp ~/hostname 
+
+scp ~/hosting/hostname dns1.webhouse.net:
+scp ~/hosting/hostname dns2.webhouse.net:
+
+scp ~/hosting/hostname amidala.webhouse.net:
+scp ~/hosting/hostname skywalker.webhouse.net:
+scp ~/hosting/hostname kenobi.webhouse.net:
+scp ~/hosting/hostname hux.webhouse.net:
+scp ~/hosting/hostname kanata.webhouse.net:
+
+scp ~/hosting/hostname kanata-dev.webhouse.net:
+scp ~/hosting/hostname dooku.webhouse.net:
+
+scp ~/hosting/hostname jabba.webhouse.net:
+scp ~/hosting/hostname vader.webhouse.net:

@@ -1,0 +1,93 @@
+# Initial login:
+ssh -i /Users/cbroberg/odeum-frankfurt.pem ubuntu@35.158.202.54
+
+ssh ubuntu@52.28.227.152
+
+# Create new ssh key:
+
+cd 
+ls ~/.ssh
+
+# If .ssh not found create it
+
+mkdir ~/.ssh
+
+# If you have an .ssh directory and you do not already have a working id_rsa and id_rsa.pub key in there create it:
+
+ssh-keygen -t rsa
+
+# Make sure that only you have access to the private id_rsa key:
+
+cd ~/.ssh
+chmod 0600 id_rsa
+
+# List indholdet af den public del af nøglen:
+
+cat ~/.ssh/id_rsa.pub
+
+# Mail or Slack the id_rsa.pub to me
+
+# Opret ny bruger:
+# Tag en ny konsol og login som ubuntu på lightsail (kanata) maskinen med password.
+
+# Opret din bruger (cb):
+
+sudo adduser cb
+
+# Tilføj til sudo gruppen:
+
+sudo usermod -aG sudo cb
+
+# Skift til cb (du bliver promptet for pw):
+
+su cb
+
+# Gå ind i .ssh directory eller opret det hvis det ikke findes:
+
+cd  .ssh
+mkdir .ssh
+
+# Åben filen authorized_keys i din yndlings editor eller opret den hvis den ikke findes:
+
+nano authorized_keys
+touch authorized_keys
+
+# Paste indholdet fra din public key og gem.
+
+# Tag en ny konsol på din lokale maskine, og prøv at logge ind:
+
+ssh cb@kanata.webhouse.net
+ssh cb@rey.webhouse.net
+
+# Hvis du har gjort det rigtigt er du inde på kanata.
+
+# Hvis dit lokale brugernavn også er cb, kan du nøjes med:
+ssh kanata
+
+# Skift hostname på ny instans:
+# Hostname:
+sudo -i
+sudo hostname dns1.webhouse.net
+sudo mc (edit /etc/hosts linie med 127.0.0.1 localhost + dns1)
+
+sudo nano /etc/hosts
+sudo nano /etc/hostname
+
+############################
+UNATTENDED
+############################
+
+useradd -m -p <encryptedPassword> -s /bin/bash <user>
+-m, --create-home: Create user home directory
+-p, --password: Specify user password; skip to have it disabled
+-s, --shell: Default shell for logon user
+
+Blank will use default login shell specified by the SHELL variable in /etc/default/useradd
+
+Substitute <user> with the login name
+Substitute <encryptedPassword> with the encrypted password
+
+useradd -m -p '$6$Zr7N6TH8$c4am8QZ5aJfRuME4x4DpSQVCKwijF4VwF3iQKwp8cYkEpXcIoN9vJ5XYZYO.fZzw49i4H3a/WJ/JOvrAuRiDx1' -s /bin/bash cb2
+
+
+
