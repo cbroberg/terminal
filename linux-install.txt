@@ -1,0 +1,9 @@
+Linux installs:
+
+Net-tools
+sudo apt install net-tools
+
+NodeJS
+
+NPM
+
