@@ -4,6 +4,10 @@ Net-tools
 sudo apt install net-tools
 
 NodeJS
-
 NPM
+MC
+Docker
+MQTT
+Github (gh)
+RMate (Textmate) + tunneling setup
 

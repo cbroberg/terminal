@@ -1,0 +1,31 @@
+If you’re getting “Permission denied” errors, it’s likely because Time Machine files are protected by the macOS System Integrity Protection (SIP) or have strict permissions. Here’s a way to address this issue:
+
+	1.	Disable System Integrity Protection (SIP):
+	•	Restart your Mac and hold down Command + R to boot into Recovery Mode.
+	•	Once in Recovery Mode, open Utilities > Terminal.
+	•	Type this command to disable SIP:
+
+csrutil disable
+
+	•	Press Enter, then restart your Mac.
+
+	2.	Change Permissions Manually:
+	•	Open Terminal.
+	•	Run the following command to change the permissions of the Backups.backupdb folder:
+
+sudo chmod -R 755 /Volumes/NetworkDrive/Backups.backupdb
+
+	•	This should allow you to delete the folder afterward.
+
+	3.	Try the Delete Command Again:
+	•	After adjusting permissions, retry the delete command:
+
+sudo rm -rf /Volumes/NetworkDrive/Backups.backupdb
+
+	4.	Re-enable SIP (recommended):
+	•	Once the deletion is complete, it’s a good idea to re-enable SIP.
+	•	Boot back into Recovery Mode, open Terminal again, and run:
+
+csrutil enable
+
+	•	Restart your Mac.
